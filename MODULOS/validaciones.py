@@ -9,10 +9,11 @@ def validar_str(texto: str) -> str:
     """
     input_usuario = input(texto)
     if input_usuario.isalpha():
-        return input_usuario
+        return input_usuario.lower()
     else:
         print('El dato ingresado por el usuario no es valido. Intente nuevamente.')
         return validar_str(texto)
+    
 
 
 def validar_int(texto: str) -> int:
@@ -30,7 +31,6 @@ def validar_int(texto: str) -> int:
     else:
         print('ERROR. El dato ingresado no es un número. Vuelva a intentarlo.')
         return validar_int(texto)
-
 
 
 def validar_int_entre_rangos(texto: str, minimo: int, maximo: int) -> int:
