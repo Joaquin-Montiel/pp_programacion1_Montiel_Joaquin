@@ -1,6 +1,5 @@
 import validaciones, filtros, mostrar_datos, calculos, ordenamiento
 
-#1.Crear Matriz: para ello deberá crear una función que en base a las listas, cree una matriz con los datos para trabajar.
 
 def crear_matriz(lista_nombres: list, lista_alias: list, lista_razas: list, lista_generos: list, lista_poderes: list, 
                 lista_inteligencias: list, lista_velocidades: list) -> list[list]:
@@ -34,8 +33,6 @@ def crear_matriz(lista_nombres: list, lista_alias: list, lista_razas: list, list
 
     return matriz
 
-#2.Agregar personaje: Debes poder agregar un personaje a la matriz, los datos a incluir son: Nombre, Alias, Raza, Género, 
-# Inteligencia, Poder, Velocidad. 
 
 def agregar_personaje(matriz: list[list]) -> list[list]:
     """
@@ -157,8 +154,7 @@ def procesar_android_por_promedio(matriz: list[list], tipo_buscado: str) -> None
     print(f"EL PROMEDIO DE INTELIGENCIA DE LOS ANDROID ES: {promedio_inteligencia_android}")
     print(f"EL PROMEDIO DE PODER DE LOS ANDROID ES: {promedio_poder_android}")
 
-#12.Filtrar No-Binario Veloces:  Filtrar/buscar en la matriz todos los personajes de género No-Binario que posean la más 
-# alta velocidad.
+
 def procesar_no_binario(matriz: list[list], tipo_buscado: str) -> None:
     """
     Coordina el proceso para filtrar y mostrar los personajes de un género específico que poseen la velocidad más alta.
@@ -181,8 +177,6 @@ def procesar_no_binario(matriz: list[list], tipo_buscado: str) -> None:
     print('LOS PERSONAJES MAS VELOCES DEL GÉNERO NO-BINARIO SON: ')
     mostrar_datos.mostrar_personajes(personajes_velocidad_maxima)
 
-#14.Filtrar Kryptonian: Solamente de los personajes que NO sean raza Kryptonian, mostrar la info completa de los que 
-# superen o igualen el promedio de poder de personajes de raza Kryptonian.
 
 def procesar_kryptonian(matriz: list[list]) -> int:
     """
@@ -223,9 +217,6 @@ def obtener_filtro_kryptonian(matriz: list[list]) -> None:
     mostrar_datos.mostrar_personajes(personajes_superen_promedio)
 
 
-#15.Filtrar Saiyan Power: Mostrar la info de los personajes (que no sean raza Saiyan) cuyos stats estén por debajo del 
-# índice de ataque Saiyan, obtenido de la ecuación (promedio poder + promedio inteligencia + promedio velocidad) / 3. 
-# Para saber esto, primero deberás calcular el promedio de esos stats de los personajes cuya raza sea Saiyan.
 
 def procesar_saiyan_power(matriz: list[list]) -> float:
     """
@@ -300,9 +291,7 @@ def obtener_personajes_debajo_indice_ataque(matriz: list[list]) -> None:
     if indice_ataque > 0:
         procesar_no_saiyan(matriz, indice_ataque)
 
-#17.Ordenar por Menos Inteligente [not Human]: Ordenar la matriz según inteligencia ASC de personajes cuya raza no sea 
-# Human
-#18.Ordenar por Más Poder [not Human]: Ordenar la matriz según poder DES de los personajes cuya raza no sea Human
+
 
 def manejar_ordenamiento_filtro_inteligencia_no_human(matriz: list[list]) -> None:
     """

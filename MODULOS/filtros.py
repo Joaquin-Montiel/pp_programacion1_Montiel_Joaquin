@@ -40,8 +40,7 @@ def filtrar_maximo(matriz: list[list], indice_columna: int) -> int:
     
     return valor_maximo
 
-#11.Filtrar Débiles: Filtrar/buscar en la matriz todos los personajes cuyo poder no superen el poder de personajes de 
-# raza Saiyan.
+
 def filtrar_minimo(lista_personajes: list, indice_columna: int) -> int:
     """
     Filtra y devuelve el valor mínimo de una columna numérica en una lista de personajes.
@@ -82,7 +81,7 @@ def filtrar_maximos_repetidos(matriz: list[list], indice_columna: int, maximo_ob
 
     return personajes_maximo
 
-#10. Filtrar Menor velocidad: Filtrar/Buscar y mostrar la info de los personajes que no superen el promedio de velocidad.
+
 
 def filtrar_por_promedio(matriz: list[list], indice_columna: int, promedio_obtenido: float) -> list:
     """
@@ -106,8 +105,6 @@ def filtrar_por_promedio(matriz: list[list], indice_columna: int, promedio_obten
     return personajes_filtrados_promedio
 
 
-#14.Filtrar Kryptonian: Solamente de los personajes que NO sean raza Kryptonian, mostrar la info completa de los que 
-# superen o igualen el promedio de poder de personajes de raza Kryptonian.
 def filtrar_superen_promedio(lista_procesada: list, indice_columna: int, promedio_a_comparar: float):
     """
     Filtra y devuelve una lista de personajes que superan o igualan un valor promedio dado.

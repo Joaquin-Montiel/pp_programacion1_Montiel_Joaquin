@@ -55,8 +55,6 @@ def mostrar_cantidad_personajes(matriz: list[list]) -> None:
     else:
         print(f'LA CANTIDAD DE PERSONAJES QUE HAY EN EL SET DE DATOS ES: {cantidad_personajes}.')
 
-#4.Existencias personajes Human: Mostrar la cantidad de personajes que sean raza Human o en caso de que tengan una raza 
-# compuesta, tengan Human en su raza
 
 def mostrar_existencias(matriz: list[list], tipo_raza: str) -> None:
     """
@@ -79,8 +77,6 @@ def mostrar_existencias(matriz: list[list], tipo_raza: str) -> None:
     print(f'LA CANTIDAD DE PERONAJES {tipo_raza} O QUE CONTENGAN {tipo_raza} SON: {cantidad}.')
     return cantidad
 
-#5. Existencias personajes que no sean Human: Mostrar la cantidad de personajes cuya raza no sea Human o no tenga Human 
-# como parte de su raza compuesta
 def mostrar_resto_existencias(matriz: list[list], cantidad_raza: int) -> None:
     """
     Calcula y muestra la cantidad de personajes que no pertenecen a una raza específica, basándose en el total de la
@@ -93,9 +89,6 @@ def mostrar_resto_existencias(matriz: list[list], cantidad_raza: int) -> None:
 
     print(f'LA CANTIDAD DE PERSONAJES NO HUMAN O QUE NO CONTENGAN HUMAN SON: {resto_cantidad_existencias}.')
 
-#6. Mostrar Detalle: Recorrer la matriz y mostrar la info de todos los personajes truncando los strings a 15 caracteres 
-# como máximo. (con una función que acepte ese tipo de matriz) con formato:nombre,alias,raza,género,inteligencia,poder,
-# velocidad
 
 
 def mostrar_detalle(matriz: list[list]) -> None:
@@ -125,8 +118,6 @@ def mostrar_detalle(matriz: list[list]) -> None:
 
             print(f'{nombre}, {alias}, {raza}, {genero}, {inteligencia}, {poder}, {velocidad}')
 
-#7. Mostrar Saiyan: Recorrer la matriz y mostrar la info (con una función que acepte ese tipo de matriz) con formato: 
-# nombre,alias,raza,género,inteligencia,poder,velocidad solamente de los personajes cuya raza sea Saiyan
 
 def mostrar_personajes(lista_personajes: list) -> None:
     """
@@ -149,11 +140,6 @@ def mostrar_personajes(lista_personajes: list) -> None:
         
         print(f'{nombre}, {alias}, {raza}, {genero}, {inteligencia}, {poder}, {velocidad}')
 
-
-#8.Mostrar más poderoso:Determinar cuál o cuáles son los personajes con más poder y mostrar sus datos, junto con la 
-# cantidad que poseen
-#9.Mostrar más inteligente: Determinar cuál o cuáles son los personajes más inteligentes y mostrar sus datos, junto con 
-# la cantidad que poseen
 
 def mostrar_personajes_filtrados(lista_filtrada: list, indice_columna, tipo_filtro: str) -> None:
     """
