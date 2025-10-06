@@ -56,8 +56,43 @@ def ordenar_selection_sort(matriz: list[list], indice_columna: int, modo: str = 
 
     return matriz
 
+def inicializar_matriz_transpuesta(cantidad_columnas: int) -> list[list]:
+    """
+    Crea e inicializa la matriz transpuesta con un número de filas vacías.
+    :param: cantidad_columnas: El número de columnas de la matriz original, que será el número de filas de la matriz 
+    transpuesta.
+    :returns: Una matriz lista para ser llenada.
+    """
+    matriz_transpuesta = []
 
+    for indice in range(cantidad_columnas):
+        matriz_transpuesta.append([])
 
+    return matriz_transpuesta
+
+def transponer_matriz(matriz_original: list[list]) -> list[list]:
+    """
+    Invierte las filas y columnas de la matriz original.
+    :param: matriz_original: La matriz de personajes.
+    :returns: La matriz transpuesta.
+    """
+
+    if not matriz_original:
+        return []
+
+    numero_columnas = len(matriz_original[0])
+    numero_filas = len(matriz_original)
+
+    matriz_transpuesta = inicializar_matriz_transpuesta(numero_columnas)
+
+    for indice_fila in range(numero_filas):
+        for indice_columna in range(numero_columnas):
+
+            valor = matriz_original[indice_fila][indice_columna]
+
+            matriz_transpuesta[indice_columna].append(valor)
+
+    return matriz_transpuesta
 
 
 

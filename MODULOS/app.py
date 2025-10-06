@@ -87,7 +87,7 @@ def gestionar_app_personajes() -> None:
             case 20:
                 ordenamiento.manejar_ordenamiento_personalizado(matriz_personajes)
             case 21:
-                pass
+                utilidades.procesar_ordenamiento_matriz_transpuesta(matriz_personajes)
             case 22:
                 corriendo = False
 

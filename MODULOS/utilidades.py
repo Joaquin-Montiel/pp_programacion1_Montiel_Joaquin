@@ -375,11 +375,24 @@ def manejar_ordenamiento_personalizado(matriz: list[list]):
         for personaje in sub_raza_ordenada_poder:
             matriz_final_ordenada.append(personaje)
 
-    print("\n--- Matriz Ordenada: Raza (ASC) y Poder (DES) ---")
+    print("\n--- MATRIZ ORDENADA: RAZA (ASC) Y PODER (DES) ---")
     mostrar_datos.mostrar_personajes(matriz_final_ordenada)
     
     return matriz_final_ordenada
 
+def procesar_ordenamiento_matriz_transpuesta(matriz: list[list]):
+    """
+    Coordina el proceso final: ordena la matriz por Raza (ASC), la traspone, y muestra los datos de forma prolija.
+    :param: matriz_original: La matriz de personajes.
+    :returns: La función no devuelve un valor, solo maneja la presentación final.
+    """
+
+    matriz_ordenada = ordenamiento.ordenar_selection_sort(matriz, 2, 'ASC')
+
+    matriz_transpuesta_ordenada = ordenamiento.transponer_matriz(matriz_ordenada)
+
+    print("\n--- DATOS TRANSPUESTO (Ordenados por Raza ASC) ---")
+    mostrar_datos.mostrar_matriz_transpuesta(matriz_transpuesta_ordenada)
 
 
 

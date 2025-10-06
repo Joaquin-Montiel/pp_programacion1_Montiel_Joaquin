@@ -181,6 +181,32 @@ def mostrar_personajes_filtrados(lista_filtrada: list, indice_columna, tipo_filt
         print(f'{nombre}, {alias}, {valor_maximo}')
 
 
+def mostrar_matriz_transpuesta(matriz_transpuesta: list[list]) -> None:
+    """
+    Muestra la información de la matriz transpuesta de forma rápida.
+    
+    Args:
+        matriz_transpuesta (list[list]): La matriz con filas y columnas invertidas.
+
+    Returns:
+        None: Solo imprime los datos a la consola.
+    """
+    if not matriz_transpuesta:
+        print("La matriz está vacía. No hay datos para mostrar.")
+        return
+
+    nombres_filas = ['Nombre', 'Alias', 'Raza', 'Género', 'Poder', 'Inteligencia', 'Velocidad']
+
+    for indice in range(len(matriz_transpuesta)):
+        
+        linea_salida = f'{nombres_filas[indice]}: \t'
+
+        for valor in matriz_transpuesta[indice]:
+            linea_salida += f'{valor}\t'
+        
+        print(linea_salida)
+
+
 
 
 
