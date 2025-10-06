@@ -27,6 +27,11 @@ def encontrar_elemento_intercambio(matriz: list[list], indice_actual: int, indic
     
     return indice_extremo
 
+#20.Ordenar personalizado: Ordenar la matriz según lo siguiente:
+#Todos los personajes deben estar agrupados por Raza
+#Cada personaje de cada raza, debe estar ordenado según poder DES en su raza.
+#Las Razas en la matriz deben aparecer de forma Alfabética
+
 def ordenar_selection_sort(matriz: list[list], indice_columna: int, modo: str = 'DESC') ->  list[list]:
     """
     Ordena la matriz de personajes utilizando el algoritmo Selection Sort.
@@ -50,5 +55,9 @@ def ordenar_selection_sort(matriz: list[list], indice_columna: int, modo: str = 
             matriz[indice_extremo] = auxiliar
 
     return matriz
+
+
+
+
 
 

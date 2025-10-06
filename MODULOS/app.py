@@ -85,7 +85,7 @@ def gestionar_app_personajes() -> None:
                 matriz_ordenada_velocidad = ordenamiento.ordenar_selection_sort(matriz_personajes, 6, 'ASC')
                 mostrar_datos.mostrar_personajes_filtrados(matriz_ordenada_velocidad, 6, 'menos')
             case 20:
-                pass
+                ordenamiento.manejar_ordenamiento_personalizado(matriz_personajes)
             case 21:
                 pass
             case 22:

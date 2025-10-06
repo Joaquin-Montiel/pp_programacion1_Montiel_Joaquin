@@ -146,6 +146,23 @@ def filtrar_no_personaje(matriz: list[list], indice_columna: int, dato_a_compara
 
     return no_personaje
 
+def filtrar_valores_unicos(matriz: list[list], indice_columna: int) -> list:
+    """
+    Filtra la matriz y devuelve una lista que contiene todos los valores únicos presentes en la columna especificada.
+    :param: matriz: La matriz de datos de los personajes.
+            indice_columna: El índice de la columna de la cual se desean extraer los valores únicos.
+    :returns: Una lista con los valores únicos encontrados en la columna.
+    """
+    valores_unicos = []
+    
+    for personaje in matriz:
+        valor_actual = personaje[indice_columna]
+        
+        if valor_actual not in valores_unicos:
+            valores_unicos.append(valor_actual)
+            
+    return valores_unicos
+
 
 
 

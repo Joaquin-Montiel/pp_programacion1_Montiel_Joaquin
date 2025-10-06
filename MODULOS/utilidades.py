@@ -343,6 +343,44 @@ def manejar_ordenamiento_filtro_poder_no_human(matriz: list[list]) -> None:
     mostrar_datos.mostrar_personajes_filtrados(matriz_no_human_ordenada, 4, 'mas')
 
 
+def manejar_ordenamiento_personalizado(matriz: list[list]):
+    """
+    Ordena la matriz de personajes según dos criterios jerárquicos:
+    1. Criterio Principal: Agrupamiento por Raza (orden Alfabético / ASC).
+    2. Criterio Secundario: Ordenamiento por Poder (Descendente / DES) dentro de cada raza.
+    La función logra este ordenamiento combinando el filtrado por subgrupos y la llamada repetida al algoritmo Selection 
+    Sort.
+    Pasos del proceso (asumiendo Raza=Índice 2 y Poder=Índice 5):
+    1. Obtiene la lista de todas las Razas únicas presentes en la matriz.
+    2. Ordena esta lista de Razas alfabéticamente (ASC).
+    3. Itera sobre las Razas ordenadas:
+        a. Filtra la matriz completa para obtener solo los personajes de la Raza actual.
+        b. Ordena este subgrupo por Poder de forma Descendente (DES).
+        c. Concatena los personajes ordenados del subgrupo a la lista final.
+    4. Muestra la matriz final y la retorna.
+    :param: matriz: La matriz con todos los datos de los personajes.
+    :returns: Una nueva matriz de listas (personajes) ordenada primero por Raza (ASC) y luego por Poder (DES) dentro de 
+    cada raza.
+    """
+    razas = filtros.filtrar_valores_unicos(matriz, 2)
+
+    razas_ordenadas_asc = ordenamiento.ordenar_selection_sort(razas, 0, 'ASC')
+
+    matriz_final_ordenada = []
+    for raza_actual in razas_ordenadas_asc:
+        sub_raza = filtros.filtrar_personaje(matriz, 2, raza_actual)
+
+        sub_raza_ordenada_poder = ordenamiento.ordenar_selection_sort(sub_raza, 5, 'DESC')
+
+        for personaje in sub_raza_ordenada_poder:
+            matriz_final_ordenada.append(personaje)
+
+    print("\n--- Matriz Ordenada: Raza (ASC) y Poder (DES) ---")
+    mostrar_datos.mostrar_personajes(matriz_final_ordenada)
+    
+    return matriz_final_ordenada
+
+
 
 
 
