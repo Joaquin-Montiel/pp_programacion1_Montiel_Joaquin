@@ -1,4 +1,3 @@
-import filtros
 
 def mostrar_menu_principal() -> None:
     """
@@ -8,7 +7,6 @@ def mostrar_menu_principal() -> None:
     El formato del menú está predefinido en una cadena de texto.
     :returns: La función no retorna ningún valor, simplemente imprime el menú en la consola.
     """
-
     menu_opciones =\
         f"""
             ****MENU DE HÉROES Y VILLANOS****
@@ -53,9 +51,9 @@ def mostrar_cantidad_personajes(matriz: list[list]) -> None:
     cantidad_personajes = len(matriz)
 
     if cantidad_personajes <= 0:
-        print('La matriz esta vacia.')
+        print('LA MATRIZ ESTA VACÍA.')
     else:
-        print(f'La cantidad de personajes que hay en el set de datos es: {cantidad_personajes}')
+        print(f'LA CANTIDAD DE PERSONAJES QUE HAY EN EL SET DE DATOS ES: {cantidad_personajes}.')
 
 #4.Existencias personajes Human: Mostrar la cantidad de personajes que sean raza Human o en caso de que tengan una raza 
 # compuesta, tengan Human en su raza
@@ -78,7 +76,7 @@ def mostrar_existencias(matriz: list[list], tipo_raza: str) -> None:
         if raza_personaje == tipo_raza or tipo_raza in palabra_raza_limpia.split(): 
             cantidad += 1
 
-    print(f'La cantidad de personajes de raza {tipo_raza} o de raza compuesta que contenga {tipo_raza} es {cantidad}.')
+    print(f'LA CANTIDAD DE PERONAJES {tipo_raza} O QUE CONTENGAN {tipo_raza} SON: {cantidad}.')
     return cantidad
 
 #5. Existencias personajes que no sean Human: Mostrar la cantidad de personajes cuya raza no sea Human o no tenga Human 
@@ -93,7 +91,7 @@ def mostrar_resto_existencias(matriz: list[list], cantidad_raza: int) -> None:
     """
     resto_cantidad_existencias = len(matriz) - cantidad_raza
 
-    print(f'La cantidad de personajes que no son de raza Human o que contengan Human son: {resto_cantidad_existencias}')
+    print(f'LA CANTIDAD DE PERSONAJES NO HUMAN O QUE NO CONTENGAN HUMAN SON: {resto_cantidad_existencias}.')
 
 #6. Mostrar Detalle: Recorrer la matriz y mostrar la info de todos los personajes truncando los strings a 15 caracteres 
 # como máximo. (con una función que acepte ese tipo de matriz) con formato:nombre,alias,raza,género,inteligencia,poder,
@@ -111,11 +109,11 @@ def mostrar_detalle(matriz: list[list]) -> None:
     :returns: La función no devuelve un valor. Solo imprime el informe de cada personaje en la consola.
     """
     if not matriz:
-        print('La matriz está vacía. No hay personajes para mostrar.')
+        print('LA MATRIZ ESTA VACIA. NO HAY PERSONAJES PARA MOSTRAR.')
         return
     else:
         print('****** INFORME DE PERSONAJE ******')
-        print('-----------------------------------')
+        print('----------------------------------')
         for personaje in matriz:
             nombre = personaje[0][:15]
             alias = personaje[1][:15]
@@ -130,26 +128,26 @@ def mostrar_detalle(matriz: list[list]) -> None:
 #7. Mostrar Saiyan: Recorrer la matriz y mostrar la info (con una función que acepte ese tipo de matriz) con formato: 
 # nombre,alias,raza,género,inteligencia,poder,velocidad solamente de los personajes cuya raza sea Saiyan
 
-def mostrar_saiyan(matriz: list[list]) -> None:
-    se_encontraron_saiyan = False
-
-    for personaje in matriz:
-        raza_personaje = personaje[2]
-        if raza_personaje == 'Saiyan':
-            se_encontraron_saiyan = True
-
-            nombre = personaje[0]
-            alias = personaje[1]
-            raza = personaje[2]
-            genero = personaje[3]
-            inteligencia = personaje[4]
-            poder = personaje[5]
-            velocidad = personaje[6]
-
-            print(f'{nombre}, {alias}, {raza}, {genero}, {inteligencia}, {poder}, {velocidad}')
-
-    if not se_encontraron_saiyan:
-        print('No se encontraron personajes de raza Saiyan.')
+def mostrar_personajes(lista_personajes: list) -> None:
+    """
+    Muestra la información de una lista de personajes en un formato de una línea.
+    :param: lista_personajes: Una lista de personajes a mostrar.
+    :returns: La función no devuelve un valor, solo imprime el resultado.
+    """
+    if not lista_personajes:
+        print("NO SE ENCONTRARON PERSONAJES QUE CUMPLAN CON EL CRITERIO.")
+        return
+    
+    for personaje in lista_personajes:
+        nombre = personaje[0]
+        alias = personaje[1]
+        raza = personaje[2]
+        genero = personaje[3]
+        inteligencia = personaje[4]
+        poder = personaje[5]
+        velocidad = personaje[6]
+        
+        print(f'{nombre}, {alias}, {raza}, {genero}, {inteligencia}, {poder}, {velocidad}')
 
 
 #8.Mostrar más poderoso:Determinar cuál o cuáles son los personajes con más poder y mostrar sus datos, junto con la 
@@ -157,7 +155,7 @@ def mostrar_saiyan(matriz: list[list]) -> None:
 #9.Mostrar más inteligente: Determinar cuál o cuáles son los personajes más inteligentes y mostrar sus datos, junto con 
 # la cantidad que poseen
 
-def mostrar_maximo(lista_maximos: list, indice_columna) -> None:
+def mostrar_personajes_filtrados(lista_filtrada: list, indice_columna, tipo_filtro: str) -> None:
     """
     Muestra los datos de los personajes que tienen el valor máximo en una columna específica.
     La función recorre una lista de personajes y, para cada uno, imprime su nombre, alias y el valor máximo de la columna 
@@ -167,33 +165,22 @@ def mostrar_maximo(lista_maximos: list, indice_columna) -> None:
     :returns: La función no devuelve ningún valor, solo imprime el resultado.
     """
     if indice_columna == 4:
-        nombre_valor = 'poder'
+        nombre_valor = 'PODER'
     elif indice_columna == 5:
-        nombre_valor = 'inteligencia'
-    else:
-        nombre_valor = 'valor'
+        nombre_valor = 'INTELIGENCIA'
+    elif indice_columna == 6:
+        nombre_valor = 'VELOCIDAD'
 
-    print(f'Los personajes con el maximo de {nombre_valor} son: ')
-    for personaje in lista_maximos:
+    print(f'LOS PERSONAJES CON EL {tipo_filtro} DE {nombre_valor} SON: ')
+    print('------------------------------------------')
+    for personaje in lista_filtrada:
         nombre = personaje[0]
         alias = personaje[1]
         valor_maximo = personaje[indice_columna]
 
         print(f'{nombre}, {alias}, {valor_maximo}')
 
-def procesar_personaje_maximo(matriz, indice_columna) -> None:
-    """
-    Procesa y muestra los personajes con el valor máximo en una columna específica.
-    Esta función orquesta la lógica para encontrar y mostrar a los personajes más destacados de la matriz. Primero, 
-    determina el valor máximo en una columna dada. Luego, filtra a todos los personajes que poseen ese valor y, 
-    finalmente, los imprime en la consola.
-    :param: matriz: La matriz con todos los datos de los personajes.
-            indice_columna: El índice de la columna que se desea analizar(ej. 5 para inteligencia, 4 para poder).
-    :returns: La función no devuelve un valor, solo imprime el resultado.
-    """
 
-    poder_maximo = filtros.filtrar_maximo(matriz, indice_columna)
 
-    personajes_maximos = filtros.filtrar_maximos_repetidos(matriz,indice_columna, poder_maximo)
 
-    mostrar_maximo(personajes_maximos, indice_columna)
+

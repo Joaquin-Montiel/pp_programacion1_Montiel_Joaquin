@@ -1,5 +1,5 @@
 import os
-import mostrar_datos, validaciones, funciones_standar
+import mostrar_datos, validaciones, utilidades, filtros 
 from utn_fra.datasets import (
         lista_nombre_heroes_pp as nombres, 
         lista_alias_pp as alias,
@@ -25,12 +25,12 @@ def gestionar_app_personajes() -> None:
 
         match opcion:
             case 1:
-                matriz_personajes = funciones_standar.crear_matriz(nombres,alias, razas, 
-                                                                    generos, poderes, 
-                                                                    inteligencias, velocidades)
+                matriz_personajes = utilidades.crear_matriz(nombres, alias, razas, 
+                                                            generos, poderes, 
+                                                            inteligencias, velocidades)
                 print('La matriz ha sido creada correctamente.')
             case 2:
-                funciones_standar.agregar_personaje(matriz_personajes)
+                utilidades.agregar_personaje(matriz_personajes)
                 print(matriz_personajes)
             case 3:
                 if matriz_personajes == None:
@@ -44,23 +44,23 @@ def gestionar_app_personajes() -> None:
             case 6:
                 mostrar_datos.mostrar_detalle(matriz_personajes)
             case 7:
-                mostrar_datos.mostrar_saiyan(matriz_personajes)
+                utilidades.procesar_saiyanes(matriz_personajes)
             case 8:
-                mostrar_datos.procesar_personaje_maximo(matriz_personajes, 4)
+                utilidades.procesar_personaje_maximo(matriz_personajes, 4, 'maximo')
             case 9:
-                mostrar_datos.procesar_personaje_maximo(matriz_personajes, 5)
+                utilidades.procesar_personaje_maximo(matriz_personajes, 5, 'maximo')
             case 10:
-                pass
+                utilidades.procesar_personajes_por_pormedio(matriz_personajes, 6, 'minimo')
             case 11:
-                pass
+                utilidades.procesar_personajes_debiles(matriz_personajes, 'Saiyan')
             case 12:
-                pass
+                utilidades.procesar_no_binario(matriz_personajes, 'No-Binario')
             case 13:
-                pass
+                utilidades.procesar_android_por_promedio(matriz_personajes, 'Android')
             case 14:
-                pass
+                utilidades.obtener_filtro_kryptonian(matriz_personajes)
             case 15:
-                pass
+                utilidades.obtener_personajes_debajo_indice_ataque(matriz_personajes)
             case 16:
                 pass
             case 17:
