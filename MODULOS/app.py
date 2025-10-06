@@ -1,5 +1,5 @@
 import os
-import mostrar_datos, validaciones, utilidades, filtros 
+import mostrar_datos, validaciones, utilidades, filtros, ordenamiento
 from utn_fra.datasets import (
         lista_nombre_heroes_pp as nombres, 
         lista_alias_pp as alias,
@@ -13,6 +13,19 @@ from utn_fra.datasets import (
 
 
 def gestionar_app_personajes() -> None:
+    """
+    Función principal de la aplicación.
+    Controla el flujo del programa mediante un menú interactivo. Inicializa la aplicación, maneja la creación y el estado 
+    de la matriz de personajes, y llama a las funciones específicas de los módulos (utilidades, mostrar_datos, 
+    ordenamiento) para ejecutar las diferentes opciones solicitadas por el usuario.
+    El bucle principal sigue esta estructura:
+    1. Muestra el menú de opciones.
+    2. Valida la entrada del usuario.
+    3. Usa una sentencia 'match' para ejecutar la acción correspondiente.
+    4. Maneja la persistencia del menú hasta que el usuario selecciona la opción de salida (22).
+
+    :returns: La función no devuelve un valor, solo maneja la lógica y la interfaz de la aplicación.
+    """
 
     corriendo = True
     matriz_personajes = None
@@ -62,13 +75,15 @@ def gestionar_app_personajes() -> None:
             case 15:
                 utilidades.obtener_personajes_debajo_indice_ataque(matriz_personajes)
             case 16:
-                pass
+                matriz_ordenada_inteligencia = ordenamiento.ordenar_selection_sort(matriz_personajes, 5)
+                mostrar_datos.mostrar_personajes_filtrados(matriz_ordenada_inteligencia, 5, 'maximo')
             case 17:
-                pass
+                ordenamiento.ordenar_filtrar_inteligencia_no_human(matriz_personajes)
             case 18:
-                pass
+                ordenamiento.ordenar_filtrar_poder_no_human(matriz_personajes)
             case 19:
-                pass
+                matriz_ordenada_velocidad = ordenamiento.ordenar_selection_sort(matriz_personajes, 6, 'ASC')
+                mostrar_datos.mostrar_personajes_filtrados(matriz_ordenada_velocidad, 6, 'menos')
             case 20:
                 pass
             case 21:

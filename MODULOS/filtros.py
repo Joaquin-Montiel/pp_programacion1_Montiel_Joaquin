@@ -127,7 +127,25 @@ def filtrar_superen_promedio(lista_procesada: list, indice_columna: int, promedi
     return personajes_superen_promedio
 
 
-    
+
+def filtrar_no_personaje(matriz: list[list], indice_columna: int, dato_a_comparar: str) -> list:
+    """
+    Filtra la matriz y devuelve una lista de personajes que NO coinciden con un valor específico en una columna dada.
+    Esta función es el inverso de un filtro estándar: recorre la matriz y solo incluye los personajes cuya característica 
+    en 'indice_columna' es diferente al 'dato_a_comparar'.
+    :param: matriz: La matriz con todos los datos de los personajes.
+            indice_columna: El índice de la columna que contiene el valor a comparar.
+            dato_a_comparar: El valor que se busca EXCLUIR de la lista resultante 
+    :returns: Una lista de listas (matriz) que contiene a todos los personajes que NO cumplen con la condición de 
+    exclusión.
+    """
+    no_personaje = []
+    for personaje in matriz:
+        if personaje[indice_columna] != dato_a_comparar:
+            no_personaje.append(personaje)
+
+    return no_personaje
+
 
 
 
