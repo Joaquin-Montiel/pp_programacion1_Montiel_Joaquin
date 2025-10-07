@@ -78,14 +78,14 @@ def gestionar_app_personajes() -> None:
                 matriz_ordenada_inteligencia = ordenamiento.ordenar_selection_sort(matriz_personajes, 5)
                 mostrar_datos.mostrar_personajes_filtrados(matriz_ordenada_inteligencia, 5, 'maximo')
             case 17:
-                ordenamiento.ordenar_filtrar_inteligencia_no_human(matriz_personajes)
+                utilidades.manejar_ordenamiento_filtro_inteligencia_no_human(matriz_personajes)
             case 18:
-                ordenamiento.ordenar_filtrar_poder_no_human(matriz_personajes)
+                utilidades.manejar_ordenamiento_filtro_poder_no_human(matriz_personajes)
             case 19:
                 matriz_ordenada_velocidad = ordenamiento.ordenar_selection_sort(matriz_personajes, 6, 'ASC')
                 mostrar_datos.mostrar_personajes_filtrados(matriz_ordenada_velocidad, 6, 'menos')
             case 20:
-                ordenamiento.manejar_ordenamiento_personalizado(matriz_personajes)
+                utilidades.manejar_ordenamiento_personalizado(matriz_personajes)
             case 21:
                 utilidades.procesar_ordenamiento_matriz_transpuesta(matriz_personajes)
             case 22:
